@@ -1,0 +1,46 @@
+<mdb-card>
+    <mdb-card-header class="info-color white-text text-center py-4">
+        <h5>
+            <strong>Enrolee details</strong>
+        </h5>
+    </mdb-card-header>
+    <mdb-card-body class="px-lg-5 pt-0">
+        <form>
+            <div class="form-row mt-3">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" [formControl]="isActive" type="checkbox" value=""
+                            id="invalidCheck" required />
+                        <label class="form-check-label" for="invalidCheck">
+                            Is active
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="md-form form-outline">
+                        <input [formControl]="name" type="text" id="name" class="form-control" mdbInput required>
+                        <label for="name">Name</label>
+                        <div *ngIf="name.value === ''" class="invalid-feedback d-block">Enter minimum 1 character</div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input [formControl]="dateOfBirth" type="email" id="dateOfBirth" class="form-control" mdbInput>
+                        <label for="dateOfBirth">Date of birth</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input [formControl]="id" type="text" id="idString" class="form-control" mdbInput>
+                        <label for="idString">Id</label>
+                    </div>
+                </div>
+            </div>
+            <button [disabled]="name.value === ''" mdbBtn color="info" 
+                (click)="submitForm()" class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Save</button>
+        </form>
+    </mdb-card-body>
+</mdb-card>
